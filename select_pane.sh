@@ -56,7 +56,7 @@ function select_pane() {
     # Check if pane exists
     elif tmux has-session -t "${pane_id}" >/dev/null 2>&1; then
         # Found it! Let's switch.
-        tmux switch-client -t "${pane_id}"
+        tmux switch-client -t "${pane_id}" && tmux resize-pane -Z
     else
         # Pane not found, let's create it.
         tmux command-prompt -b -p "Press ENTER to create a new window in the current session [${pane}]" "new-window -n \"${pane}\""
