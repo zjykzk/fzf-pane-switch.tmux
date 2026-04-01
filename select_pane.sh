@@ -44,7 +44,7 @@ function select_pane() {
 
     # Launch switcher
     pane=$(tmux list-panes -aF "${4}" | 
-        eval fzf --exit-0 --print-query --reverse --tmux "${2}" --with-nth=2.. "${border_styling}" "${preview}" | 
+        eval fzf --color=bg:-1,bg+:-1 --exit-0 --print-query --reverse --tmux "${2}" --with-nth=2.. "${border_styling}" "${preview}" | 
         tail -1)
 
     # Set pane_id to first part of fzf output
